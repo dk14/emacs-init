@@ -148,9 +148,10 @@
 
 
 (defun fix (to from)
-  (goto-char (point-min))
-  (while (search-forward from nil t)
-    (replace-match to)))
+  (save-excursion
+   (goto-char (point-min))
+   (while (search-forward from nil t)
+     (replace-match to))))
 
 
 (defun unifix ()
@@ -232,5 +233,10 @@
 (company-coq-mode)
 ;; Load company-coq when opening Coq files
 (add-hook 'coq-mode-hook #'company-coq-mode)
+
+(defun mp-add-coq-keys ()
+  (local-set-key (kbd "C-C f") 'unifix))
+
+(add-hook 'coq-mode-hook 'mp-add-coq-keys)
 
 (desktop-save-mode 1)
