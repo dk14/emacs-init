@@ -42,8 +42,27 @@ Proof. simpl. reflexivity. Qed.
 From TLC Require Import LibTactics.
 
 Theorem test: forall code: bin, bin_to_nat(incr(code)) = 1 + bin_to_nat(code).
-Proof. intros n.
-Admitted.
+Proof.
+intros n.
+induction n as [|n'1 IHn1|n'2 IHn2].
+- simpl. reflexivity.
+- unfold incr. destruct n'1.
+  * reflexivity.
+  * simpl.
+    auto.
+  * simpl.
+    auto.
+- destruct n'2.
+  * reflexivity.
+  * simpl.
+    simpl in IHn2.
+    rewrite <- IHn2.
+    destruct n'2. reflexivity. simpl. auto. simpl. auto.
+  * simpl.
+    simpl in IHn2.
+    rewrite -> IHn2.
+    destruct n'2. reflexivity. simpl. auto. simpl. auto.
+Qed.
 
 
 
