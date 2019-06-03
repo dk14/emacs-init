@@ -3,7 +3,6 @@ Inductive bin : Type :=
   | A (n : bin)
   | B (n : bin).
 
-
 Fixpoint incr (m:bin) : bin :=
   match m with
   | Z => B Z
@@ -24,7 +23,7 @@ Proof.
 intros n.
 induction n as [|n'1 IHn1|n'2 IHn2].
 - simpl. reflexivity.
-- destruct n'1; repeat  auto.
+- destruct n'1; repeat auto.
 - destruct n'2.
   * reflexivity.
   * destruct n'2; repeat (simpl; auto).
