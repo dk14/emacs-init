@@ -129,7 +129,9 @@
      ("============================" "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" bold tactical))))
  '(coq-unicode-tokens-enable t)
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages (quote (company-coq proof-general projectile neotree)))
+ '(package-selected-packages
+   (quote
+    (command-log-mode company-coq proof-general projectile neotree)))
  '(proof-splash-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -190,8 +192,8 @@
      (fix "Phi" "Φ")
      (fix "Psi" "Ψ")
      (fix "Omega" "Ω")
-     (fix "forall" "∀")
-     (fix "exists" "∃")
+     (fix "forall " "∀")
+     (fix "exists " "∃")
      (fix "nat" "ℕ")
      (fix "complex" "ℂ")
      (fix "real" "ℝ")
@@ -234,8 +236,15 @@
 ;; Load company-coq when opening Coq files
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
+(defun paste-unifix ()
+  "paste and fix"
+  (interactive)
+  (yank)
+  (unifix))
+
 (defun mp-add-coq-keys ()
-  (local-set-key (kbd "C-C f") 'unifix))
+  (local-set-key (kbd "C-C f") 'unifix)
+  (local-set-key (kbd "s-v") 'paste-unifix))
 
 (add-hook 'coq-mode-hook 'mp-add-coq-keys)
 
