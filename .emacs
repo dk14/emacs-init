@@ -229,9 +229,6 @@
      (fix "~" "¬")
      (fix "============================" "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
 
-
-(load "~/.emacs.d/elpa/proof-general-20190531.2218/generic/proof-site.el")
-
 (company-coq-mode)
 ;; Load company-coq when opening Coq files
 (add-hook 'coq-mode-hook #'company-coq-mode)
