@@ -131,7 +131,7 @@
  '(custom-enabled-themes (quote (tsdh-dark)))
  '(package-selected-packages
    (quote
-    (command-log-mode company-coq proof-general projectile neotree)))
+    (ensime ammonite-term-repl scala-mode texfrag px magic-latex-buffer ein command-log-mode company-coq proof-general projectile neotree)))
  '(proof-splash-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -286,110 +286,8 @@
 (add-to-list 'default-frame-alist (cons 'height (get-default-height)))
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
- '(coq-maths-menu-enable t)
- '(coq-shortcut-alist nil)
- '(coq-token-symbol-map
-   (quote
-    (("alpha" "α")
-     ("beta" "β")
-     ("gamma" "γ")
-     ("delta" "δ")
-     ("epsilon" "ε")
-     ("zeta" "ζ")
-     ("eta" "η")
-     ("theta" "θ")
-     ("iota" "ι")
-     ("kappa" "κ")
-     ("lambda" "λ")
-     ("mu" "μ")
-     ("nu" "ν")
-     ("xi" "ξ")
-     ("pi" "π")
-     ("rho" "ρ")
-     ("sigma" "σ")
-     ("tau" "τ")
-     ("upsilon" "υ")
-     ("phi" "ϕ")
-     ("chi" "χ")
-     ("psi" "ψ")
-     ("omega" "ω")
-     ("Gamma" "Γ")
-     ("Delta" "Δ")
-     ("Theta" "Θ")
-     ("Lambda" "Λ")
-     ("Xi" "Ξ")
-     ("Pi" "Π")
-     ("Sigma" "Σ")
-     ("Upsilon" "Υ")
-     ("Phi" "Φ")
-     ("Psi" "Ψ")
-     ("Omega" "Ω")
-     ("forall" "∀")
-     ("exists" "∃")
-     ("nat" "ℕ" type)
-     ("complex" "ℂ" type)
-     ("real" "ℝ" type)
-     ("int" "ℤ" type)
-     ("rat" "ℚ" type)
-     ("bool" "B" underline type)
-     ("false" "false" bold sans)
-     ("true" "true" bold sans)
-     ("WHILE" "WHILE" bold sans)
-     ("DO" "DO" bold sans)
-     ("END" "END" bold sans)
-     ("SKIP" "SKIP" bold sans)
-     ("THEN" "THEN" bold sans)
-     ("ELSE" "ELSE" bold sans)
-     ("IFB" "IFB" bold sans)
-     ("FI" "FI" bold sans)
-     ("{{" "⦃" bold)
-     ("}}" "⦄" bold)
-     ("lhd" "⊲")
-     ("rhd" "⊳")
-     ("<=" "≤")
-     (">=" "≥")
-     ("=>" "⇒")
-     ("->" "→")
-     ("<-" "←")
-     ("<->" "↔")
-     ("++" "⧺")
-     ("<<" "《")
-     (">>" "》")
-     ("===" "≡")
-     ("=/=" "≢")
-     ("=~=" "≅")
-     ("==b" "≡")
-     ("<>b" "≢")
-     ("-->" "⟹-")
-     ("++>" "⟹+")
-     ("==>" "⟹")
-     (":=" "≔")
-     ("|-" "⊢")
-     ("<>" "≠")
-     ("-|" "⊣")
-     ("\\/" "∨")
-     ("/\\" "∧")
-     ("~" "¬")
-     ("============================" "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" bold tactical))))
- '(coq-unicode-tokens-enable t)
- '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages
-   (quote
-    (command-log-mode company-coq proof-general projectile neotree)))
- '(proof-splash-enable nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+
 
 ;; Auto-rename new eww buffers
 (defun xah-rename-eww-hook ()
