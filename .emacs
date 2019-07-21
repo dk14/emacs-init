@@ -129,9 +129,12 @@
      ("============================" "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" bold tactical))))
  '(coq-unicode-tokens-enable t)
  '(custom-enabled-themes (quote (tsdh-dark)))
+ '(custom-safe-themes
+   (quote
+    ("fd944f09d4d0c4d4a3c82bd7b3360f17e3ada8adf29f28199d09308ba01cc092" "256bd513a9875cd855077162cdfee8d75b0ad7e18fe8b8cbc10412561fbef892" default)))
  '(package-selected-packages
    (quote
-    (ensime ammonite-term-repl scala-mode texfrag px magic-latex-buffer ein command-log-mode company-coq proof-general projectile neotree)))
+    (doom-themes treemacs centaur-tabs ensime ammonite-term-repl scala-mode texfrag px magic-latex-buffer ein command-log-mode company-coq proof-general projectile neotree)))
  '(proof-splash-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -146,89 +149,6 @@
   (rename-buffer "eww" t))
 
 (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
-
-
-
-(defun fix (to from)
-  (save-excursion
-   (goto-char (point-min))
-   (while (search-forward from nil t)
-     (replace-match to))))
-
-
-(defun unifix ()
-   "Fix unicode for Coq"
-   (interactive)
-     (fix "alpha" "α")
-     (fix "beta" "β")
-     (fix "gamma" "γ")
-     (fix "delta" "δ")
-     (fix "epsilon" "ε")
-     (fix "zeta" "ζ")
-     (fix "eta" "η")
-     (fix "theta" "θ")
-     (fix "iota" "ι")
-     (fix "kappa" "κ")
-     (fix "lambda" "λ")
-     (fix "mu" "μ")
-     (fix "nu" "ν")
-     (fix "xi" "ξ")
-     (fix "pi" "π")
-     (fix "rho" "ρ")
-     (fix "sigma" "σ")
-     (fix "tau" "τ")
-     (fix "upsilon" "υ")
-     (fix "phi" "ϕ")
-     (fix "chi" "χ")
-     (fix "psi" "ψ")
-     (fix "omega" "ω")
-     (fix "Gamma" "Γ")
-     (fix "Delta" "Δ")
-     (fix "Theta" "Θ")
-     (fix "Lambda" "Λ")
-     (fix "Xi" "Ξ")
-     (fix "Pi" "Π")
-     (fix "Sigma" "Σ")
-     (fix "Phi" "Φ")
-     (fix "Psi" "Ψ")
-     (fix "Omega" "Ω")
-     (fix "forall " "∀")
-     (fix "exists " "∃")
-     (fix "nat" "ℕ")
-     (fix "complex" "ℂ")
-     (fix "real" "ℝ")
-     (fix "int" "ℤ")
-     (fix "rat" "ℚ")
-     (fix "{{" "⦃")
-     (fix "}}" "⦄")
-     (fix "lhd" "⊲")
-     (fix "rhd" "⊳")
-     (fix "<=" "≤")
-     (fix ">=" "≥")
-     (fix "=>" "⇒")
-     (fix "->" "→")
-     (fix "<-" "←")
-     (fix "<->" "↔")
-     (fix "++" "⧺")
-     (fix "<<" "《")
-     (fix ">>" "》")
-     (fix "===" "≡")
-     (fix "=/=" "≢")
-     (fix "=~=" "≅")
-     (fix "==b" "≡")
-     (fix "<>b" "≢")
-     (fix "-->" "⟹-")
-     (fix "++>" "⟹+")
-     (fix "==>" "⟹")
-     (fix ":=" "≔")
-     (fix "|-" "⊢")
-     (fix "<>" "≠")
-     (fix "-|" "⊣")
-     (fix "\\/" "∨")
-     (fix "/\\" "∧")
-     (fix "~" "¬")
-     (fix "============================" "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
-
 
 (load "~/.emacs.d/elpa/proof-general-20190531.2218/generic/proof-site.el")
 
@@ -375,8 +295,8 @@
      (fix "|-" "⊢")
      (fix "<>" "≠")
      (fix "-|" "⊣")
-     (fix "\\/" "∨")
-     (fix "/\\" "∧")
+     (fix "\\\\/" "∨")
+     (fix "/\\\\" "∧")
      (fix "~" "¬")
      (fix "============================" "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
 
@@ -399,4 +319,21 @@
 
 (add-hook 'coq-mode-hook 'mp-add-coq-keys)
 
+(load-theme 'doom-Iosvkem)
+
+(setq centaur-tabs-set-icons t)
+
+(setq centaur-tabs-style "zigzag")
+
+(setq visible-bell nil
+      ring-bell-function 'flash-mode-line)
+
+(defun flash-mode-line ()
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil #'invert-face 'mode-line))
+
 (desktop-save-mode 1)
+
+(scroll-bar-mode -1)
+
+
